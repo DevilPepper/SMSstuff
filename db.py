@@ -14,3 +14,10 @@ table.put_item(
         'history': ''
     }
 )
+
+#190d85cd36b6a949a8828cc12e3892f5
+
+#CID U8xslalJaqxYb9NtS7NeWAvbmM2UfNOOIVQDsfHB
+#CSec mgDB5GnYAp7qjNtWMD1GMFjVAusk0-O_iS3fAa0g
+
+#access AtDBvC9A6iYdXiYrNRdCgp3zBmdHpr

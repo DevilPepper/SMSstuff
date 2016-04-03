@@ -6,6 +6,9 @@ import sys
 from twilio.rest import TwilioRestClient
 import contextlib
 import urllib
+import requests
+
+theList = []
 
 app = Flask(__name__)
 
@@ -47,11 +50,11 @@ def hello_monkey():
                 statesJSON = statesJSON[int(token)-1]["sub"]
 
     output = ""
-    end = False
+    end = ""
     for i in statesJSON :
-        if i["text"] == "end" :
+        if i["text"] == "sonic" or i["text"] == "merchant" or i["text"] == "weather" :
             output = i["url"]
-            end = True
+            end = i["text"]
             break
         output += i["text"] + "\n"
 
@@ -59,17 +62,30 @@ def hello_monkey():
         #elif  :
 
 
-    print sms.body
+    #print sms.body
     
+    #theList.append(56)
+    print len(theList)
+
     if "call" in tokens :
         resp.say(output)#"Why are you texting me from %s" % sms.from_)
         client.calls.create(url="http://twimlets.com/echo?Twiml=" + urllib.quote_plus(str(resp)),
         to=sms.from_,
         from_=sms.to)
-    elif end :
-        client.calls.create(url=output,
+    elif end == "sonic" :
+        resp.play(output)
+        client.calls.create(url="http://twimlets.com/echo?Twiml=" + urllib.quote_plus(str(resp)),
         to=sms.from_,
         from_=sms.to)
+    #elif end == "merchant":
+        #apiKey = '190d85cd36b6a949a8828cc12e3892f5'
+        #url = "http://api.reimaginebanking.com/merchants?key={}".foramt(apiKey)   
+        #response = requests.get(url, headers={'content-type':'application/json'})
+    elif end == "gif":
+        accessTok="AtDBvC9A6iYdXiYrNRdCgp3zBmdHpr"
+        giphy = json.load(urllib2.urlopen('http://api.giphy.com/v1/gifs/random?api_key=yoJC2lsdYpMXVbjZq8'))
+        clari = json.load(urllib2.urlopen("https://api.clarifai.com/v1/tag/?url="+giphy["image_url"]+"&access_token="+accessTok))
+        theList.append({"p": sms.from_, "img": giphy["image_url"], "tags": clari["classes"]})
     else :
         resp.message(output)#"Why are you texting me from %s" % sms.from_)
 
