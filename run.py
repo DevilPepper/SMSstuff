@@ -10,8 +10,10 @@ import urllib2
 import requests
 
 theList = []
+inputs = []
 
 app = Flask(__name__)
+
 
 @app.route("/", methods=['GET', 'POST'])
 def hello_monkey():
@@ -34,8 +36,14 @@ def hello_monkey():
     #create it in db
     #get val for p#
 
+    if sms.from_ in inputs:
+        inputs[inputs.index(sms.from_) + 1] = " ".join([inputs[theList.index(sms.from_) + 1], sms.body])
+    else:
+        inputs.append(sms.from_)
+        inputs.append(sms.body)
+
     cmd = ""
-    cmd += sms.body.lower()
+    cmd += inputs[inputs.index(sms.from_) + 1].lower()
     
     #print sms.from_
     tokens = cmd.split()
