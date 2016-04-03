@@ -1,8 +1,6 @@
 from flask import Flask, request, redirect
 import twilio.twiml
 import json
-from lxml import etree
-import StringIO
 import sys
 # Download the Python helper library from twilio.com/docs/python/install
 from twilio.rest import TwilioRestClient
@@ -20,24 +18,60 @@ def hello_monkey():
     
     account_sid = "ACd56262f209cd94fe377106f857bd8f82"
     auth_token  = "2c0d255b6ad344bca74537fd5ca022c9"
+    
+    #account_sid = "ACf0ce6e03499a2da7d37621c539f804c7"
+    #auth_token  = "41e7d0631589238c7c5d9c62b28c47d2"
+
     client = TwilioRestClient(account_sid, auth_token)
  
     sms = client.messages.get(txt)
 
-    #print sms.from_
-    tokens = sms.body.split()
+    #if(p# !exist)
+    #create it in db
+    #get val for p#
+
+    cmd = ""
+    cmd += sms.body.lower()
     
+    #print sms.from_
+    tokens = cmd.split()
+
+    with open('state.json') as data_file:    
+        statesJSON = json.load(data_file)
+
+    for token in tokens :
+        if token == "call" or token == "0" or not token.isdigit() :
+            break
+        else :
+            if int(token) <= len(statesJSON) :
+                statesJSON = statesJSON[int(token)-1]["sub"]
+
+    output = ""
+    end = False
+    for i in statesJSON :
+        if i["text"] == "end" :
+            output = i["url"]
+            end = True
+            break
+        output += i["text"] + "\n"
+
+
+        #elif  :
 
 
     print sms.body
     
     if "call" in tokens :
-        resp.say("Why are you texting me from %s" % sms.from_)
+        resp.say(output)#"Why are you texting me from %s" % sms.from_)
         client.calls.create(url="http://twimlets.com/echo?Twiml=" + urllib.quote_plus(str(resp)),
         to=sms.from_,
         from_=sms.to)
+    elif end :
+        client.calls.create(url=output,
+        to=sms.from_,
+        from_=sms.to)
     else :
-        resp.message("Why are you texting me from %s" % sms.from_)
+        resp.message(output)#"Why are you texting me from %s" % sms.from_)
 
     return str(resp)
  

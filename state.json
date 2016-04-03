@@ -1,0 +1,84 @@
+[
+	{
+		"text": "Press 1 for account info",
+		"sub": [
+			{
+				"text": "Press 1 for account info lvl2",
+				"sub": [
+					{
+						"text": "Press 1 for account info lvl3",
+						"sub": [
+
+						]
+					},
+					{
+						"text": "Press 2 for something else",
+						"sub": [
+
+						]
+					}
+				]
+			},
+			{
+				"text": "Press 2 for something else",
+				"sub": [
+					{
+						"text": "Press 1 for some stuff",
+						"sub": [
+
+						]
+					},
+					{
+						"text": "Press 2 for other stuff",
+						"sub": [
+
+						]
+					}
+				]
+			}
+		]
+	},
+	{
+		"text": "Press 2 for stuff",
+		"sub": [
+			{
+				"text": "Press 1 for nothing much",
+				"sub": [
+					{
+						"text": "Press 1 for banana",
+						"sub": [
+
+						]
+					},
+					{
+						"text": "Turn down for what",
+						"sub": [
+
+						]
+					}
+				]
+			},
+			{
+				"text": "Press 2 for easter egg",
+				"sub": [
+					{
+						"text": "Press 1 for nothing",
+						"sub": [
+
+						]
+					},
+					{
+						"text": "Press 2 one more time",
+						"sub": [
+							{
+								"text": "end",
+								"url": "http://216.227.134.162/ost/sonic-the-hedgehog-2-original-soundtrack/ypntobtehw/06-chemical-plant-zone.mp3"
+							}
+
+						]
+					}
+				]
+			}
+		]
+	}
+]
