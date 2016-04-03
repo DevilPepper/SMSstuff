@@ -1,26 +1,32 @@
 [
 	{
-		"text": "Press 1 for account info",
+		"text": "Press 1 for Amazon",
 		"sub": [
 			{
-				"text": "Press 1 for account info lvl2",
+				"text": "Press 1 for Amazon Account Info",
 				"sub": [
 					{
-						"text": "Press 1 for account info lvl3",
+						"text": "Press 1 for Amazon Messages",
 						"sub": [
 
 						]
 					},
 					{
-						"text": "Press 2 for something else",
+						"text": "Press 2 for Amazon Wish List",
 						"sub": [
 
+						]
+					},
+					{
+						"text": "Press 3 for Amazon Verification",
+						"sub":[
+						
 						]
 					}
 				]
 			},
 			{
-				"text": "Press 2 for something else",
+				"text": "Press 2 for Amazon Packages",
 				"sub": [
 					{
 						"text": "Press 1 for some stuff",
@@ -64,7 +70,10 @@
 					{
 						"text": "Press 1 for nothing",
 						"sub": [
-
+							{
+								"text": "gif",
+								"url": ""
+							}
 						]
 					},
 					{
