@@ -1,27 +1,19 @@
 from flask import Flask, request, redirect
 import twilio.twiml
 import json
+from lxml import etree
 import StringIO
 import sys
 # Download the Python helper library from twilio.com/docs/python/install
 from twilio.rest import TwilioRestClient
 import contextlib
-
-@contextlib.contextmanager
-def stdoutIO(stdout=None):
-    old = sys.stdout
-    if stdout is None:
-        stdout = StringIO.StringIO()
-    sys.stdout = stdout
-    yield stdout
-    sys.stdout = old
-
+import urllib
 
 app = Flask(__name__)
 
 @app.route("/", methods=['GET', 'POST'])
 def hello_monkey():
-    """Respond to incoming calls with a simple text message."""
+    #"""Respond to incoming calls with a simple text message."""
  
     txt = request.args.get('MessageSid', '')
     resp = twilio.twiml.Response()
@@ -32,36 +24,24 @@ def hello_monkey():
  
     sms = client.messages.get(txt)
 
-    #print type(sms)
     #print sms.from_
-    #numba = twilio.
-    #tokens = txt.tokenize()
-    
-    #old_stdout = sys.stdout
-    #mystdout = StringIO()
-    #sys.stdout = mystdout
-
-    #exec(sms.body)
-
-    #sys.stdout = old_stdout
-
-    #print mystdout
-    #print mystdout.getvalue()
-    #print type(exec(sms.body))
+    tokens = sms.body.split()
     
 
-    #code = "print \"5\""
-    with stdoutIO() as s:
-        exec sms.body
-        #exec code
 
     print sms.body
-    print s.getvalue()
-    #resp.message(ret)
-    #resp.message(mystdout.getvalue())
-    resp.message("Why are you texting me from %s" % sms.from_)# % sms.from)
+    
+    if "call" in tokens :
+        resp.say("Why are you texting me from %s" % sms.from_)
+        client.calls.create(url="http://twimlets.com/echo?Twiml=" + urllib.quote_plus(str(resp)),
+        to=sms.from_,
+        from_=sms.to)
+    else :
+        resp.message("Why are you texting me from %s" % sms.from_)
+
     return str(resp)
  
 if __name__ == "__main__":
     app.run(debug=True)
+
 
