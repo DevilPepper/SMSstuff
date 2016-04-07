@@ -1,0 +1,168 @@
+[
+	{
+		"text": "Press 1 for Amazon",
+		"sub": [
+			{
+				"text": "Press 1 for Amazon Account Info",
+				"sub": [
+					{
+						"text": "Press 1 for Amazon Messages",
+						"sub": [
+
+						]
+					},
+					{
+						"text": "Press 2 for Amazon Wish List",
+						"sub": [
+
+						]
+					},
+					{
+						"text": "Press 3 for Amazon Verification",
+						"sub":[
+						
+						]
+					}
+				]
+			},
+			{
+				"text": "Press 2 for Amazon Packages",
+				"sub": [
+					{
+						"text": "Press 1 for List of Packages",
+						"sub": [
+
+						]
+					},
+					{
+						"text": "Press 2 for Package Tracking",
+						"sub": [
+
+						]
+					}
+				]
+			}
+		]
+	},
+	{
+		"text": "Press 2 for Ebay",
+		"sub": [
+			{
+				"text": "Press 1 for Ebay Account Info",
+				"sub": [
+					{
+						"text": "Press 1 for Ebay Messages",
+						"sub": [
+
+						]
+					},
+					{
+						"text": "Press 2 for Ebay Wish List",
+						"sub":[
+						
+						]
+					}
+				]
+			},
+			{
+				"text": "Press 2 for Ebay Packages",
+				"sub": [
+					{
+						"text": "Press 1 for List of Packages",
+						"sub": [
+
+						]
+					},
+					{
+						"text": "Press 2 for Package Tracking",
+						"sub": [
+
+						]
+					}
+				]
+			}
+		]
+	},
+	{
+		"text": "Press 3 for Capital One",
+		"sub": [
+			{
+				"text": "Press 1 for Capital One Account Info",
+				"sub": [
+					{
+						"text": "Press 1 for Account Balance",
+						"sub": [
+
+						]
+					},
+					{
+						"text": "Press 2 for Transactions",
+						"sub":[
+						
+						]
+					}
+				]
+			},
+			{
+				"text": "Press 2 for Capital One Rewards",
+				"sub": [
+					{
+						"text": "Press 1 for Rewards Balance",
+						"sub": [
+
+						]
+					},
+					{
+						"text": "Press 2 for Redemption",
+						"sub": [
+
+						]
+					}
+				]
+			}
+		]
+	},
+	{
+		"text": "Press 4 for Stuff",
+		"sub": [
+			{
+				"text": "Press 1 for Easter Egg",
+				"sub": [
+					{
+						"text": "Press 1 one more time",
+						"sub": [
+							{
+								"text": "sonic",
+								"url": "http://216.227.134.162/ost/sonic-the-hedgehog-2-original-soundtrack/ypntobtehw/06-chemical-plant-zone.mp3"
+							}
+						]
+					},
+					{
+						"text": "Turn down for what",
+						"sub": [
+						]
+					}
+				]
+			},
+			{
+				"text": "Press 2 for Mini Game",
+				"sub": [
+					{
+						"text": "Press 1 to begin",
+						"sub": [
+							{
+								"text": "gif",
+								"url": ""
+							}
+						]
+					},
+					{
+						"text": "Press 2 for nout",
+						"sub": [
+						]
+					}
+				]
+			}
+		]
+	}
+]
